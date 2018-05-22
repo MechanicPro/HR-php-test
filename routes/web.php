@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WeatherController@show');
+Route::get('/order', 'OrderController@show');
+Route::get('/order{id}', 'OrderController@showItem');
+Route::post('/order/{id}', 'OrderController@edit');

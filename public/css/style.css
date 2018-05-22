@@ -1,0 +1,16 @@
+#cloud {
+    width: 150px
+}
+
+#per {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+#lbl {
+    padding-bottom: 5px;
+}
+
+.hr {
+    height:15px;
+}

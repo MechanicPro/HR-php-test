@@ -38,7 +38,7 @@ class OrderController extends Controller
 			        ELSE "нет статуса"
 		        END
 		        AS status'))
-            ->groupBy('orders.id')->paginate(15);
+            ->groupBy('orders.id')->paginate(25);
 
         return view('order')->with('orders', $orders);
     }
@@ -57,7 +57,9 @@ class OrderController extends Controller
                 'orders.status as status_num',
                 DB::raw('vendors.email as email_cli'))
             ->where('orders.id', '=', $id)
-            ->groupBy('orders.id', 'products.name', 'vendors.email')->get();
+            ->groupBy('orders.id', 'products.name', 'vendors.email')
+            ->orderBy('vendors.email')
+            ->get();
 
         return view('edit')->with('orders', $orders);
     }
@@ -77,6 +79,7 @@ class OrderController extends Controller
                 'partners.id as partners_id',
                 'products.id as products_id',
                 'vendors.id as vendors_id')
+            ->orderBy('vendors.email')
             ->groupBy('orders.id', 'order_products.id', 'partners.id', 'products.id', 'vendors.id')->get();
 
         for ($i = 0; $i < $count; $i++) {

@@ -24,17 +24,18 @@
         @foreach ($orders as $key => $order)
             <div class="input-group">
                 <span class="input-group-addon">Email клиента</span>
-                <input id="msg" type="text" class="form-control" name="email_cli_{{$key}}" placeholder="Additional Info"
+                <input id="msg" type="text" class="form-control" name="email_cli_{{$key}}" placeholder="Email"
                        value={{$order -> email_cli}}>
             </div>
             <div class="input-group">
                 <span class="input-group-addon">Продукты</span>
-                <input id="msg" type="text" class="form-control" name="names_{{$key}}" placeholder="Additional Info"
+                <input id="msg" type="text" class="form-control" name="names_{{$key}}"
+                       placeholder="Наименование продукта"
                        value={{$order -> names}}>
             </div>
             <div class="input-group">
                 <span class="input-group-addon">Стоимость заказ</span>
-                <input id="msg" type="text" class="form-control" name="price_{{$key}}" placeholder="Additional Info"
+                <input id="msg" type="text" class="form-control" name="price_{{$key}}" placeholder="Стоимость заказа"
                        value={{$order -> price}}>
             </div>
             <hr class="hr">
@@ -42,12 +43,12 @@
 
         <div class="input-group">
             <span class="input-group-addon">Номер заказа</span>
-            <input id="msg" readonly type="text" class="form-control" name="id" placeholder="Additional Info"
+            <input id="msg" readonly type="text" class="form-control" name="id" placeholder="Номер заказа"
                    value={{$order -> id}}>
         </div>
         <div class="input-group">
             <span class="input-group-addon">Название партнера</span>
-            <input id="msg" type="text" class="form-control" name="partners_name" placeholder="Additional Info"
+            <input id="msg" type="text" class="form-control" name="partners_name" placeholder="Название партнера"
                    value={{$order -> partners_name}}>
         </div>
         <div class="panel panel-default">
@@ -61,12 +62,14 @@
                 <div class="input-group">
                     <span class="input-group-addon">Статус заказа</span>
                     <input id="msg_s" readonly type="text" class="form-control" name="status_num"
-                           placeholder="Additional Info"
+                           placeholder="Статус заказа"
                            value={{$order -> status_num}}>
                 </div>
             </div>
         </div>
-        <button type='submit' class="btn btn-success">Сохранить</button>
+        <div class="panel">
+            <button type='submit' class="btn btn-success">Сохранить</button>
+        </div>
     </form>
 </div>
 @include('footer')

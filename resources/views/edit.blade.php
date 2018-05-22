@@ -4,6 +4,16 @@
         <h1>Редактирование заказа</h1>
     </div>
 
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div id="lbl">
         <span class="label label-info">Количество продуктов: <?php echo count($orders)?></span>
     </div>

@@ -16,9 +16,10 @@ use App\Vendor;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Contracts;
 
 
-class OrderController extends BaseController
+class OrderController extends Controller
 {
     public function show()
     {
@@ -79,6 +80,15 @@ class OrderController extends BaseController
             ->groupBy('orders.id', 'order_products.id', 'partners.id', 'products.id', 'vendors.id')->get();
 
         for ($i = 0; $i < $count; $i++) {
+
+            $this->validate($request, [
+                'email_cli_' . $i => 'required',
+                'names_' . $i => 'required',
+                'email_cli_' . $i => 'required',
+                'price_' . $i => 'required',
+                'partners_name' => 'required',
+            ]);
+
             $email_cli = $request->input('email_cli_' . $i);
             $names = $request->input('names_' . $i);
             $price = $request->input('price_' . $i);

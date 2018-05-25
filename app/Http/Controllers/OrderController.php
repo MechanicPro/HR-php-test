@@ -13,7 +13,6 @@ use App\OrderProduct;
 use App\Partner;
 use App\Product;
 use App\Vendor;
-use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Contracts;
